@@ -1,0 +1,42 @@
+html, body { height: 100%; -webkit-tap-highlight-color: transparent; }
+body { padding: 0; margin: 0; }
+* { box-sizing: border-box; }
+.link-block { cursor: pointer; }
+svg { height: 100%; width: 100%; object-fit: cover; z-index: 1; position: relative; }
+.scaling-svg-container::-webkit-scrollbar { display: none; }
+.scaling-svg-container::-webkit-scrollbar-track { display: none; }
+.scaling-svg-container::-webkit-scrollbar-thumb { display: none; }
+.scaling-svg-container { position: relative; height: 75vh; width: 100%; padding: 0; opacity: 0; transition: all 0.6s; -webkit-transition: all 0.6s; -ms-transition: all 0.6s; -moz-transition: all 0.6s; -o-transition: all 0.6s; overflow: hidden; }
+.scaling-svg-loaded { opacity: 1; }
+.scaling-svg-container svg { position: static; height: 100%; width: 100%; left: 0; top: 0; }
+.tooltip-trigger { cursor: pointer; }
+.tooltip-outer { width: 100%; height: 100%; }
+.tooltip-block { width: 158px; min-height: 52px; position: absolute; z-index: 1; cursor: pointer; padding-right: 52px;  opacity: 0; visibility: hidden;  transform: translate3d(0, -15px, 0); -webkit-transform: translate3d(0, -15px, 0); transition: all 0.3s, transform 0.3s; -webkit-transition: all 0.3s, -webkit-transform 0.3s; }
+.open-tooltip { opacity: 1; visibility: visible; transform: translate3d(0, 0, 0) rotate3d(0, 0, 0, 0); -webkit-transform: translate3d(0, 0, 0) rotate3d(0, 0, 0, 0); }
+.tooltip-block:after { position: absolute; content: ""; width: 0; height: 0; border-style: solid; border-width: 65px 5px 0 5px; border-color: #566069 transparent transparent transparent; top: 100%; left: 50%; transform: translateX(-50%); -webkit-transform: translateX(-50%); -ms-transform: translateX(-50%); -moz-transform: translateX(-50%); }
+.tooltip-block.left:after { left: 10px; }
+.tooltip-block .tooltip-content { width: 100%; text-align: center; }
+.tooltip-block .tooltip-content .title { text-transform: uppercase; color: #00AE42; font-size: 14px; background-color: #323E48; padding: 0 10px; display: flex; align-items: center; justify-content: center; min-height: 26px; font-weight: 700; }
+.tooltip-block .tooltip-content p { display: flex; align-items: center; justify-content: center; margin: 0; padding: 0 10px; color: #ffffff; font-size: 11px; background-color: #566069; min-height: 26px; text-transform: uppercase; }
+.tooltip-block .tooltip-number { position: absolute; right: 0; top: 0; width: 52px; bottom: 0; background-color: #00AE42; color: #ffffff; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; padding: 5px; }
+.tooltip-block .tooltip-number.more-number:after { position: absolute; content: ""; left: 50%; transform: translateX(-50%); width: 1px; background: #ffffff; top: 9px; bottom: 9px; }
+.tooltip-block .tooltip-number.more-number:before { position: absolute; content: ""; top: 50%; transform: translateY(-50%); height: 1px; background: #ffffff; left: 9px; right: 9px; }
+.tooltip-block .tooltip-number em { font-style: normal; font-weight: 700; max-width: 50%; flex: 0 0 50%; text-align: center; }
+.scaling-svg-container .back-btn { position: fixed; top: 30px; right: 30px; width: 50px; height: 50px; background: #00AF41; border-radius: 100%; z-index: 2;display: inline-flex; justify-content: center; align-items: center; cursor: pointer;box-shadow: 0 3px 5px 0 rgba(0,0,0,.2);}
+.scaling-svg-container .back-btn .icon-wrap{width: 25px;height: 25px; display: inline-block;}
+.scaling-svg-container .back-btn .icon-wrap img{width: 100%; height: 100%;} 
+
+@media screen and (max-width:1199px) {
+	.scaling-svg-container { height: auto; max-height: 75vh; overflow: auto; padding-bottom: 0; }
+	.scaling-svg-container svg { position: static; width: 1280px; height: auto; }
+}
+
+@media screen and (max-width:767px) {
+	.scaling-svg-container { max-height: 65vh; }
+	.scaling-svg-container svg { position: static; width: 1024px; height: auto; }
+	.scaling-svg-container .back-btn { top: 15px; right: 15px; width: 40px; height: 40px; }
+	.scaling-svg-container .back-btn .icon-wrap { width: 18px; height: 18px; }
+}
+
+/* scaleSvg */
+.scaling-svg-container>svg{position: relative;top: 0;left: 0;}
